@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roblox</title>
+
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body{
@@ -19,7 +21,7 @@ body{
   min-height:100vh;
 }
 
-/* ---------------- Top Nav ---------------- */
+/* ================= TOP NAV ================= */
 
 .top-nav{
   position:fixed;
@@ -27,30 +29,30 @@ body{
   left:0;
   right:0;
   height:50px;
-  background:#111;
+  background:#0f0f0f;
   display:flex;
   align-items:center;
-  padding:0 20px;
-  border-bottom:1px solid #222;
+  padding:0 25px;
+  border-bottom:1px solid #1e1e1e;
   z-index:1000;
 }
 
-.nav-logo{
-  width:24px;
-  height:24px;
+.logo{
+  width:22px;
+  height:22px;
   background:#fff;
   transform:rotate(45deg);
-  margin-right:20px;
+  margin-right:25px;
 }
 
 .nav-links{
   display:flex;
-  gap:20px;
+  gap:22px;
 }
 
 .nav-links a{
+  color:#cfcfcf;
   text-decoration:none;
-  color:#ddd;
   font-size:14px;
 }
 
@@ -61,14 +63,14 @@ body{
 .nav-search{
   margin-left:30px;
   flex:1;
-  max-width:350px;
+  max-width:400px;
 }
 
 .nav-search input{
   width:100%;
-  padding:7px 12px;
+  padding:8px 12px;
   background:#1b1b1b;
-  border:1px solid #333;
+  border:1px solid #2a2a2a;
   border-radius:6px;
   color:#fff;
 }
@@ -78,32 +80,32 @@ body{
   border-color:#3b82f6;
 }
 
-.nav-create-account{
+.create-btn{
   margin-left:auto;
   background:#3b82f6;
   color:#fff;
   border:none;
-  padding:7px 16px;
+  padding:8px 18px;
   border-radius:6px;
   font-weight:600;
   cursor:pointer;
 }
 
-.nav-create-account:hover{
+.create-btn:hover{
   background:#2563eb;
 }
 
-/* ---------------- Main Layout ---------------- */
+/* ================= MAIN ================= */
 
-.main-content{
+.main{
   display:flex;
   flex:1;
   margin-top:50px;
 }
 
-/* Left panel */
+/* -------- LEFT LOGIN PANEL -------- */
 
-.left-panel{
+.left{
   width:420px;
   background:#111;
   padding:60px 40px;
@@ -112,16 +114,15 @@ body{
   justify-content:center;
 }
 
-.panel-title{
+.left h1{
   font-size:28px;
-  font-weight:600;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 
-.panel-subtitle{
+.left p{
   color:#aaa;
-  font-size:14px;
   margin-bottom:30px;
+  font-size:14px;
 }
 
 .form-group{
@@ -129,17 +130,17 @@ body{
 }
 
 .form-group label{
-  display:block;
   font-size:13px;
-  margin-bottom:6px;
   color:#ccc;
+  display:block;
+  margin-bottom:6px;
 }
 
 .form-group input{
   width:100%;
   padding:12px;
-  background:#1b1b1b;
-  border:1px solid #333;
+  background:#1c1c1c;
+  border:1px solid #2a2a2a;
   border-radius:6px;
   color:#fff;
 }
@@ -149,7 +150,7 @@ body{
   border-color:#3b82f6;
 }
 
-.login-btn{
+.signin-btn{
   width:100%;
   padding:12px;
   background:#3b82f6;
@@ -157,21 +158,20 @@ body{
   border-radius:6px;
   font-weight:600;
   cursor:pointer;
-  margin-top:10px;
+  margin-top:5px;
 }
 
-.login-btn:hover{
+.signin-btn:hover{
   background:#2563eb;
 }
 
-.forgot-link{
+.forgot{
   text-align:center;
   margin:18px 0;
   font-size:14px;
-  color:#aaa;
 }
 
-.forgot-link a{
+.forgot a{
   color:#3b82f6;
   text-decoration:none;
 }
@@ -182,107 +182,114 @@ body{
   margin:20px 0;
 }
 
-.divider-line{
+.divider span{
   flex:1;
   height:1px;
-  background:#333;
+  background:#2a2a2a;
 }
 
-.divider-text{
-  padding:0 12px;
-  color:#777;
+.divider p{
+  margin:0 10px;
   font-size:13px;
+  color:#777;
 }
 
-.alt-signin-btn{
+.alt-btn{
   width:100%;
   padding:11px;
-  background:#1b1b1b;
-  border:1px solid #333;
+  background:#1c1c1c;
+  border:1px solid #2a2a2a;
   border-radius:6px;
   color:#fff;
   cursor:pointer;
   margin-bottom:10px;
 }
 
-.alt-signin-btn:hover{
+.alt-btn:hover{
   background:#242424;
 }
 
-.signup-link{
+.signup{
   text-align:center;
   font-size:14px;
-  color:#aaa;
   margin-top:15px;
+  color:#aaa;
 }
 
-.signup-link a{
+.signup a{
   color:#3b82f6;
   text-decoration:none;
 }
 
-/* Right panel */
+/* -------- RIGHT SIDE GAME COLLAGE -------- */
 
-.right-panel{
+.right{
   flex:1;
-  background:#000 url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
   position:relative;
+  background:radial-gradient(circle at 20% 30%, #111827, #000);
+  overflow:hidden;
 }
 
-.right-panel::after{
+.right::before{
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.6);
+  background:linear-gradient(120deg, #00c6ff22, #ff00cc22);
+  filter:blur(100px);
 }
 
-/* Floating game tiles */
-
-.game-tiles{
+.tiles{
   position:absolute;
   inset:0;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-template-rows:repeat(3,1fr);
-  gap:25px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-content:center;
+  gap:30px;
   padding:60px;
 }
 
-.game-tile{
-  background:#222;
-  border-radius:12px;
+.tile{
+  width:260px;
+  height:170px;
+  border-radius:20px;
   overflow:hidden;
-  transform:rotate(-8deg);
-  transition:0.3s;
+  box-shadow:0 15px 40px rgba(0,0,0,0.7);
+  transition:0.3s ease;
 }
 
-.game-tile:nth-child(even){
-  transform:rotate(8deg);
-}
-
-.game-tile img{
+.tile img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.game-tile:hover{
-  transform:scale(1.08);
+.tile:nth-child(odd){
+  transform:rotate(-8deg);
+}
+
+.tile:nth-child(even){
+  transform:rotate(8deg);
+}
+
+.tile:hover{
+  transform:scale(1.05) rotate(0deg);
   z-index:10;
 }
 
 /* Responsive */
 
 @media(max-width:1000px){
-  .right-panel{display:none;}
-  .left-panel{width:100%;}
+  .right{display:none;}
+  .left{width:100%;}
 }
 </style>
 </head>
+
 <body>
 
 <div class="top-nav">
-  <div class="nav-logo"></div>
+  <div class="logo"></div>
   <div class="nav-links">
     <a href="#">Charts</a>
     <a href="#">Marketplace</a>
@@ -292,19 +299,19 @@ body{
   <div class="nav-search">
     <input type="text" placeholder="Search">
   </div>
-  <button class="nav-create-account">Create account</button>
+  <button class="create-btn">Create account</button>
 </div>
 
-<div class="main-content">
+<div class="main">
 
-  <div class="left-panel">
-    <div class="panel-title">Sign in</div>
-    <div class="panel-subtitle">Jump back into your experiences</div>
+  <div class="left">
+    <h1>Sign in</h1>
+    <p>Jump back into your experiences</p>
 
-    <form>
+    <form id="loginForm">
       <div class="form-group">
         <label>Username, email, or phone</label>
-        <input type="text" required>
+        <input type="text" id="username" required>
       </div>
 
       <div class="form-group">
@@ -312,41 +319,53 @@ body{
         <input type="password" id="password" required>
       </div>
 
-      <button class="login-btn">Sign in</button>
-
-      <div class="forgot-link">
-        <a href="#">Forgot password or username?</a>
-      </div>
-
-      <div class="divider">
-        <div class="divider-line"></div>
-        <div class="divider-text">Or</div>
-        <div class="divider-line"></div>
-      </div>
-
-      <button type="button" class="alt-signin-btn">📧 Email a code</button>
-      <button type="button" class="alt-signin-btn">🔑 Quick sign in</button>
-
-      <div class="signup-link">
-        Don't have an account? <a href="#">Create one</a>
-      </div>
+      <button type="submit" class="signin-btn">Sign in</button>
     </form>
+
+    <div class="forgot">
+      <a href="#">Forgot password or username?</a>
+    </div>
+
+    <div class="divider">
+      <span></span>
+      <p>Or</p>
+      <span></span>
+    </div>
+
+    <button class="alt-btn">📧 Email a code</button>
+    <button class="alt-btn">🔑 Quick sign in</button>
+
+    <div class="signup">
+      Don't have an account? <a href="#">Create one</a>
+    </div>
   </div>
 
-  <div class="right-panel">
-    <div class="game-tiles">
-      <div class="game-tile"><img src="https://picsum.photos/400/300?1"></div>
-      <div class="game-tile"><img src="https://picsum.photos/400/300?2"></div>
-      <div class="game-tile"><img src="https://picsum.photos/400/300?3"></div>
-      <div class="game-tile"><img src="https://picsum.photos/400/300?4"></div>
-      <div class="game-tile"><img src="https://picsum.photos/400/300?5"></div>
-      <div class="game-tile"><img src="https://picsum.photos/400/300?6"></div>
-      <div class="game-tile"><img src="https://picsum.photos/400/300?7"></div>
-      <div class="game-tile"><img src="https://picsum.photos/400/300?8"></div>
+  <div class="right">
+    <div class="tiles">
+      <div class="tile"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"></div>
+      <div class="tile"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"></div>
+      <div class="tile"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420"></div>
+      <div class="tile"><img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"></div>
+      <div class="tile"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"></div>
+      <div class="tile"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"></div>
     </div>
   </div>
 
 </div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  console.log("Username:", username);
+  console.log("Password:", password);
+
+  alert("This is a demo page. No data is being sent anywhere.");
+});
+</script>
 
 </body>
 </html>
