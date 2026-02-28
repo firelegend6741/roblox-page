@@ -8,293 +8,264 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-      background: #000;
+      background-color: #111;
       color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       min-height: 100vh;
     }
 
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #111;
-      padding: 0 20px;
-      height: 50px;
+    /* Left Panel */
+    .left-panel {
+      width: 400px;
+      background-color: #151515;
+      padding: 40px 30px;
       display: flex;
-      align-items: center;
-      z-index: 100;
-      border-bottom: 1px solid #222;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .logo {
-      font-size: 22px;
+      font-size: 28px;
       font-weight: bold;
-      color: white;
-      margin-right: 40px;
-      cursor: pointer;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #00ff99;
-    }
-
-    .search-bar {
-      flex: 1;
-      max-width: 400px;
-      margin: 0 20px;
-      position: relative;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 8px 12px;
-      border: 1px solid #333;
-      background: #222;
-      color: white;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .create-btn {
-      background: #00ff99;
-      color: #000;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .create-btn:hover {
-      background: #00cc77;
-    }
-
-    /* Main Content */
-    main {
+      color: #fff;
+      margin-bottom: 30px;
       display: flex;
-      flex: 1;
-      margin-top: 50px;
-      padding: 20px;
-      gap: 20px;
-    }
-
-    /* Left Panel */
-    .left-panel {
-      width: 300px;
-      background: #111;
-      padding: 20px;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .left-panel h2 {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    .left-panel p {
-      font-size: 14px;
-      color: #aaa;
-      margin-bottom: 15px;
-    }
-
-    .account-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    /* We remove the account list, so this is empty */
-    .account-list .account {
-      display: none;
-    }
-
-    .btn {
-      padding: 10px 15px;
-      background: #222;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    .btn:hover {
-      background: #333;
-    }
-
-    /* Right Panel */
-    .right-panel {
-      flex: 1;
-      position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-
-    .game-card {
-      width: 250px;
-      height: 150px;
-      background: #222;
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    }
-
-    .game-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .game-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    }
-
-    .game-card:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-    }
-
-    /* Login Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 200;
-      justify-content: center;
       align-items: center;
     }
 
-    .modal-content {
-      background: #111;
-      padding: 30px;
-      border-radius: 8px;
-      width: 400px;
-      max-width: 90%;
+    .logo img {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
     }
 
-    .modal h2 {
-      margin-bottom: 20px;
+    .panel-title {
       font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .panel-subtitle {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 30px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
     }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .form-group label {
       display: block;
       margin-bottom: 5px;
       font-size: 14px;
+      color: #ccc;
     }
 
     .form-group input {
       width: 100%;
-      padding: 10px;
-      background: #222;
+      padding: 12px;
+      background-color: #222;
       border: 1px solid #333;
-      color: white;
       border-radius: 4px;
+      color: white;
       font-size: 14px;
     }
 
-    .submit-btn {
+    .form-group input:focus {
+      outline: none;
+      border-color: #00a2ff;
+    }
+
+    .login-btn {
       width: 100%;
       padding: 12px;
-      background: #00ff99;
-      color: #000;
+      background-color: #00a2ff;
+      color: black;
       border: none;
       border-radius: 4px;
-      cursor: pointer;
       font-weight: bold;
-      font-size: 16px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 20px;
     }
 
-    .submit-btn:hover {
-      background: #00cc77;
+    .login-btn:hover {
+      background-color: #0088cc;
     }
 
-    .close-btn {
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background-color: #333;
+    }
+
+    .divider-text {
+      padding: 0 10px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .signup-link {
+      text-align: center;
+      font-size: 14px;
+      color: #999;
+    }
+
+    .signup-link a {
+      color: #00a2ff;
+      text-decoration: none;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Right Panel */
+    .right-panel {
+      flex: 1;
+      background: url('https://i.imgur.com/5VQc0Gd.jpg') no-repeat center center;
+      background-size: cover;
+      position: relative;
+    }
+
+    .right-panel::before {
+      content: '';
       position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #333;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .game-tiles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px;
+      pointer-events: none;
+    }
+
+    .game-tile {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      pointer-events: auto;
+    }
+
+    .game-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .game-tile:hover {
+      transform: scale(1.05);
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
+      border-radius: 4px;
+      padding: 8px 16px;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 14px;
+    }
+
+    .back-btn:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .create-account-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #00a2ff;
+      color: black;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .create-account-btn:hover {
+      background: #0088cc;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .left-panel {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .right-panel {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">ROBLOX</div>
-    <nav>
-      <a href="#">Charts</a>
-      <a href="#">Marketplace</a>
-      <a href="#">Create</a>
-      <a href="#">Robux</a>
-    </nav>
-    <div class="search-bar">
-      <input type="text" placeholder="Search" />
+  <!-- Left Panel -->
+  <div class="left-panel">
+    <div class="logo">
+      <img src="https://i.imgur.com/5VQc0Gd.jpg" alt="Roblox">
+      ROBLOX
     </div>
-    <button class="create-btn">Create account</button>
-  </header>
+    <div class="panel-title">Choose an account</div>
+    <div class="panel-subtitle">Pick up where you left off</div>
 
-  <main>
-    <div class="left-panel">
-      <h2>Choose an account</h2>
-      <p>Pick up where you left off</p>
-
-      <!-- We leave this empty as requested -->
-      <div class="account-list">
-        <!-- No accounts here -->
+    <!-- Account List -->
+    <div style="background: #222; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; margin-bottom: 10px; padding: 10px; background: #333; border-radius: 4px;">
+        <div style="width: 32px; height: 32px; background: #ff5722; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+          <span style="color: white; font-weight: bold;">f</span>
+        </div>
+        <div>
+          <div style="font-weight: bold;">fat</div>
+          <div style="font-size: 12px; color: #999;">@mini_ChikleT246</div>
+        </div>
       </div>
-
-      <button class="btn" id="signInBtn">Sign in to another account</button>
-      <button class="btn">Create account</button>
-    </div>
-
-    <div class="right-panel">
-      <!-- Game cards -->
-      <div class="game-card"><img src="https://via.placeholder.com/250x150?text=Game+1" alt="Game 1" /></div>
-      <div class="game-card"><img src="https://via.placeholder.com/250x150?text=Game+2" alt="Game 2" /></div>
-      <div class="game-card"><img src="https://via.placeholder.com/250x150?text=Game+3" alt="Game 3" /></div>
-      <div class="game-card"><img src="https://via.placeholder.com/250x150?text=Game+4" alt="Game 4" /></div>
-      <div class="game-card"><img src="https://
+      <div style="display: flex; align-items: center; margin-bottom: 10px; padding: 10px; background: #333; border-radius: 4px;">
+        <div style="width: 32px; height: 32px; background: #4caf50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+          <span style="color: white; font-weight: bold;">c</span>
+        </div>
+        <div>
+          <div style="font-weight: bold;">cakecakecakecake08</div>
+          <div style="font-size: 12px; color: #999;">@cakecakecakecake08</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; padding: 10px; background: #333; border-radius: 4px;">
+        <div style="width: 32px; height: 32px; background: #2196f3; border-radius: 50%; display: flex;
